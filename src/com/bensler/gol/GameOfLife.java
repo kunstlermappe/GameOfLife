@@ -39,11 +39,27 @@ public class GameOfLife extends Applet {
 		 */
 		private void drawRectangle(Graphics stift, int column, int row) {
 			//Rechteck
-			stift.drawRect(
-				(column * (CELL_SIZE + GAP_WIDTH)) + GAP_WIDTH,
-				(row    * (CELL_SIZE + GAP_WIDTH)) + GAP_WIDTH, 
-				CELL_SIZE,
-				CELL_SIZE
-			);
+			
+			boolean geradeSpalte = ((column / 2) * 2 == column);
+			boolean geradeZeile = ((row / 2) * 2 == row);
+			
+			if (geradeSpalte & geradeZeile) {
+				stift.fillRect((column * (CELL_SIZE + GAP_WIDTH)) + GAP_WIDTH,
+						(row    * (CELL_SIZE + GAP_WIDTH)) + GAP_WIDTH, 
+						CELL_SIZE,
+						CELL_SIZE);
+			} else {
+				stift.drawRect(
+						(column * (CELL_SIZE + GAP_WIDTH)) + GAP_WIDTH,
+						(row    * (CELL_SIZE + GAP_WIDTH)) + GAP_WIDTH, 
+						CELL_SIZE,
+						CELL_SIZE
+						);
+				
+			}
+			
 		}
+			
+		
+		
 	}
