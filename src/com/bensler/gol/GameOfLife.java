@@ -1,22 +1,23 @@
 package com.bensler.gol;
 
-import java.applet.Applet;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
-public class GameOfLife extends Applet {
+import javax.swing.JPanel;
+
+import com.bensler.base.BaseApp;
+
+public class GameOfLife extends JPanel {
 	
 	public final static int CELL_SIZE = 40;
 	public final static int GAP_WIDTH = 5;
 	
-	//Konstruktor der Klasse
-		public void init() {
-	//Größe des Ausgabefensters (Appletgröße)
-			setSize(500, 500);
-	//Hintergrundfarbe des Applets
-			setBackground(Color.white);
-
-		}
+	public GameOfLife() {
+		setPreferredSize(new Dimension(500,  500));
+		setBackground(Color.white);
+		setOpaque(true);
+	}
 
 		public void paint(Graphics stift) {
 			for (int zeile = 0; zeile < 10; zeile = zeile + 1) {
@@ -61,5 +62,8 @@ public class GameOfLife extends Applet {
 		}
 			
 		
-		
+	public static void main(String[] args) {
+		new BaseApp("Game of Live", new GameOfLife());
 	}
+
+}
